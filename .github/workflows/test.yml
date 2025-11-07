@@ -21,7 +21,11 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          pip install pytest
+          pip install -r requirements.txt
+
+      - name: Configurar PYTHONPATH
+        run: |
+          echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV  # Adds the root directory to PYTHONPATH
 
       - name: Ejecutar pruebas
         run: |
